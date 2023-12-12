@@ -17,6 +17,8 @@ kotlin {
 }
 
 
+val groupWithoutGradlePlugins = (project.group as String).removeSuffix(".gradle-plugins")
+
 val integrationTest: SourceSet by sourceSets.creating
 
 val integrationTestImplementation by configurations.getting {
@@ -60,7 +62,7 @@ gradlePlugin {
     testSourceSets(integrationTest)
 
     plugins.create("testSetsPlugin") {
-        id = "org.unbroken-dome.test-sets"
+        id = "${groupWithoutGradlePlugins}.test-sets"
         implementationClass = "org.unbrokendome.gradle.plugins.testsets.TestSetsPlugin"
         displayName = "Gradle TestSets plugin"
         description = "A plugin for the Gradle build system that allows specifying test sets (like integration or " +
@@ -85,4 +87,9 @@ tasks {
         useJUnitPlatform()
         testLogging.showStandardStreams = true
     }
+}
+
+
+apply {
+    from("${rootDir}/publish.gradle.kts")
 }
