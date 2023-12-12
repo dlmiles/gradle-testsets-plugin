@@ -56,7 +56,7 @@ gradlePlugin {
     testSourceSets(integrationTest)
 
     plugins.create("testSetsPlugin") {
-        id = "org.unbroken-dome.test-sets"
+        id = "${group}.test-sets"
         implementationClass = "org.unbrokendome.gradle.plugins.testsets.TestSetsPlugin"
     }
 }
@@ -88,4 +88,9 @@ pluginBundle {
             displayName = extra["pluginBundle.displayName"].toString()
         }
     }
+}
+
+
+apply {
+    from("${rootDir}/publish.gradle.kts")
 }
