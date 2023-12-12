@@ -7,6 +7,18 @@ ifdef::env-github[]
 
 :toc-placement!:
 endif::[]
+:github-pages-uri: https://dlmiles.github.io/gradle-testsets-plugin
+:github-uri: https://github.com/dlmiles/gradle-testsets-plugin
+:github-m2-uri: https://maven.pkg.github.com/dlmiles/gradle-testsets-plugin
+:maven-groupId: org.darrylmiles.repack.org.unbroken-dome
+
+
+= This repack release only exists to maintain Java8 bytecode continuity for the 3.0.1, 4.0.0, 4.1.0 releases.
+
+Due to the 4.1.0 being configured for Java11 so unable to run on top of Java8 runtimes.
+
+The distribution point for the repack is GitHub Packages see the gradle
+configuration snippet to use and consume Java8 bytecode compatible versions.
 
 
 = Gradle TestSets plugin
@@ -27,11 +39,11 @@ code, as well as a different set of library dependencies for both types of tests
 
 Add the following to your build.gradle file:
 
-[source,groovy]
+[source,groovy,subs="normal"]
 ----
 // The plugins block needs to be at the top of your build script
 plugins {
-    id 'org.unbroken-dome.test-sets' version '3.0.1'
+    id '{maven-groupId}.test-sets' version '3.0.1'
 }
 
 testSets {
@@ -65,10 +77,28 @@ dependencies {
 To use the TestSets plugin, include the following in your Gradle script:
 
 .build.gradle
-[source,groovy]
+[source,groovy,subs="normal"]
 ----
+pluginManagement {
+    repositories {
+        maven {
+            url '{github-m2-uri}'
+            content {
+                // this repository *only* contains artifacts for specific groups
+                includeGroup '{maven-groupId}.test-sets'
+                includeGroup '{maven-groupId}'
+            }
+            credentials {
+                // github requires any valid credentials even to GET packages
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
 plugins {
-    id 'org.unbroken-dome.test-sets' version '3.0.1'
+    id '{maven-groupId}.test-sets' version '3.0.1'
 }
 ----
 
@@ -350,10 +380,10 @@ As the plugin itself is written in Kotlin, it should work with the Gradle Kotlin
 
 To create a test set, use any of the common idioms from the Kotlin DSL:
 
-[source,kotlin]
+[source,kotlin,subs="normal"]
 ----
 plugins {
-    id("org.unbroken-dome.test-sets") version "3.0.1"
+    id("{maven-groupId}.test-sets") version "3.0.1"
 }
 
 testSets {
@@ -387,12 +417,12 @@ testSets {
 The plugin also contains some extension functions to allow creating or configuring test sets by simply
 putting their name, similar to Groovy (you need to put the names in quotes, however):
 
-[source,kotlin]
+[source,kotlin,subs="normal"]
 ----
 import org.unbrokendome.gradle.plugins.testsets.dsl.TestLibrary
 
 plugins {
-    id("org.unbroken-dome.test-sets") version "3.0.1"
+    id("{maven-groupId}.test-sets") version "3.0.1"
 }
 
 testSets {
