@@ -7,6 +7,7 @@ on:
     branches: 
       - master
     types: [edited, opened, synchronize]
+  workflow_dispatch:
 jobs:
   build:
     runs-on: [ubuntu-latest]
