@@ -29,7 +29,7 @@ class SystemPropertiesIntegrationTest : AbstractGradleIntegrationTest() {
                 }
                 
                 repositories {
-                    jcenter()
+                    gradlePluginPortal()
                 }
                 
                 testSets {
@@ -85,7 +85,7 @@ class SystemPropertiesIntegrationTest : AbstractGradleIntegrationTest() {
                 }
                 
                 repositories {
-                    jcenter()
+                    gradlePluginPortal()
                 }
                 
                 testSets {

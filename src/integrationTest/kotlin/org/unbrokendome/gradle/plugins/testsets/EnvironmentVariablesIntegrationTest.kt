@@ -30,7 +30,7 @@ class EnvironmentVariablesIntegrationTest : AbstractGradleIntegrationTest() {
                 }
                 
                 repositories {
-                    jcenter()
+                    gradlePluginPortal()
                 }
                 
                 testSets {
@@ -85,7 +85,7 @@ class EnvironmentVariablesIntegrationTest : AbstractGradleIntegrationTest() {
                 }
                 
                 repositories {
-                    jcenter()
+                    gradlePluginPortal()
                 }
                 
                 testSets {
