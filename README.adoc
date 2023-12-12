@@ -49,7 +49,7 @@ Add the following to your build.gradle file:
 ----
 // The plugins block needs to be at the top of your build script
 plugins {
-    id '{maven-groupId}.test-sets' version '4.0.0'
+    id '{maven-groupId}.test-sets' version '4.1.0'
 }
 
 testSets {
@@ -104,7 +104,7 @@ pluginManagement {
 }
 
 plugins {
-    id '{maven-groupId}.test-sets' version '4.0.0'
+    id '{maven-groupId}.test-sets' version '4.1.0'
 }
 ----
 
@@ -389,7 +389,7 @@ To create a test set, use any of the common idioms from the Kotlin DSL:
 [source,kotlin,subs="normal"]
 ----
 plugins {
-    id("{maven-groupId}.test-sets") version "4.0.0"
+    id("{maven-groupId}.test-sets") version "4.1.0"
 }
 
 testSets {
@@ -428,7 +428,7 @@ putting their name, similar to Groovy (you need to put the names in quotes, howe
 import org.unbrokendome.gradle.plugins.testsets.dsl.TestLibrary
 
 plugins {
-    id("{maven-groupId}.test-sets") version "4.0.0"
+    id("{maven-groupId}.test-sets") version "4.1.0"
 }
 
 testSets {
