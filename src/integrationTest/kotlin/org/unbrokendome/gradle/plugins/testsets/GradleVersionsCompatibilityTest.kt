@@ -50,7 +50,7 @@ class GradleVersionsCompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle.kts", """ 
                 plugins {
-                    id("org.unbroken-dome.test-sets")
+                    id("${resolveGradlePluginId("org.unbroken-dome.test-sets")}")
                 }
                 
                 testSets.create("integrationTest")
@@ -69,7 +69,7 @@ class GradleVersionsCompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle", """ 
                 plugins {
-                    id('org.unbroken-dome.test-sets')
+                    id('${resolveGradlePluginId("org.unbroken-dome.test-sets")}')
                 }
                 
                 testSets { integrationTest }

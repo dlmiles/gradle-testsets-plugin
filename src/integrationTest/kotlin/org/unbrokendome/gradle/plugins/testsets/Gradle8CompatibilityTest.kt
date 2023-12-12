@@ -48,7 +48,7 @@ class Gradle8CompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle", """ 
                 plugins {
-                    id('org.unbroken-dome.test-sets')
+                    id('${resolveGradlePluginId("org.unbroken-dome.test-sets")}')
                 }
                 
                 testSets { integrationTest }
@@ -65,7 +65,7 @@ class Gradle8CompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle.kts", """ 
                 plugins {
-                    id("org.unbroken-dome.test-sets")
+                    id("${resolveGradlePluginId("org.unbroken-dome.test-sets")}")
                 }
                 
                 testSets { create("integrationTest") }
@@ -82,7 +82,7 @@ class Gradle8CompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle", """ 
                 plugins {
-                    id('org.unbroken-dome.test-sets')
+                    id('${resolveGradlePluginId("org.unbroken-dome.test-sets")}')
                 }
                 
                 testSets {
@@ -105,7 +105,7 @@ class Gradle8CompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle.kts", """ 
                 plugins {
-                    id("org.unbroken-dome.test-sets")
+                    id("${resolveGradlePluginId("org.unbroken-dome.test-sets")}")
                 }
                 
                 testSets {
@@ -128,7 +128,7 @@ class Gradle8CompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle", """ 
                 plugins {
-                    id('org.unbroken-dome.test-sets')
+                    id('${resolveGradlePluginId("org.unbroken-dome.test-sets")}')
                 }
                 
                 testSets {
@@ -151,7 +151,7 @@ class Gradle8CompatibilityTest : AbstractGradleIntegrationTest() {
             directory(projectDir) {
                 file("build.gradle.kts", """ 
                 plugins {
-                    id("org.unbroken-dome.test-sets")
+                    id("${resolveGradlePluginId("org.unbroken-dome.test-sets")}")
                 }
                 
                 testSets {

@@ -25,7 +25,7 @@ class SystemPropertiesIntegrationTest : AbstractGradleIntegrationTest() {
             file("build.gradle.kts", """
                 plugins {
                     `java`
-                    id("org.unbroken-dome.test-sets")
+                    id("${resolveGradlePluginId("org.unbroken-dome.test-sets")}")
                 }
                 
                 repositories {
@@ -81,7 +81,7 @@ class SystemPropertiesIntegrationTest : AbstractGradleIntegrationTest() {
             file("build.gradle.kts", """
                 plugins {
                     `java`
-                    id("org.unbroken-dome.test-sets")
+                    id("${resolveGradlePluginId("org.unbroken-dome.test-sets")}")
                 }
                 
                 repositories {

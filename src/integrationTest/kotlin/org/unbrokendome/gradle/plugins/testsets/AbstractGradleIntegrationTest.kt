@@ -13,6 +13,12 @@ abstract class AbstractGradleIntegrationTest {
     protected lateinit var projectDir: File
 
 
+    companion object {
+        fun resolveGradlePluginId(defaultValue: String): String {
+            return System.getProperty("gradlePluginId") ?: defaultValue
+        }
+    }
+
     @BeforeEach
     fun setupProject() {
         projectDir = Files.createTempDirectory("gradle").toFile()

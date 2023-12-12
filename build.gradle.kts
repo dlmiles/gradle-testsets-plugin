@@ -76,6 +76,7 @@ gradlePlugin {
 tasks {
     register<Test>("integrationTest") {
         dependsOn("pluginUnderTestMetadata")
+        systemProperty("gradlePluginId", "$groupWithoutGradlePlugins.test-sets")
         group = JavaBasePlugin.VERIFICATION_GROUP
         description = "Runs the integration tests."
         testClassesDirs = integrationTest.output.classesDirs
